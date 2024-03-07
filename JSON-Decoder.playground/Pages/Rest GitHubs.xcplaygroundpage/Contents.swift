@@ -8,19 +8,19 @@ struct GitHubs: Codable {
     let login: String
     let id: Int
     let node_id: String
-    let avatar_url: String
+    let avatar_url: URL
     let gravatar_id: String
     let url: String
     let html_url: String
-    let followers_url: String
-    let following_url: String
-    let gists_url: String
-    let starred_url: String
-    let subscriptions_url: String
-    let organizations_url: String
-    let repos_url: String
-    let events_url: String
-    let received_events_url: String
+    let followers_url: URL
+    let following_url: URL
+    let gists_url: URL
+    let starred_url: URL
+    let subscriptions_url: URL
+    let organizations_url: URL
+    let repos_url: URL
+    let events_url: URL
+    let received_events_url: URL
     let type: String
     let site_admin: Bool
 }
