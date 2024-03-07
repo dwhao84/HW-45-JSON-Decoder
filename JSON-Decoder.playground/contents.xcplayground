@@ -3,5 +3,7 @@
     <pages>
         <page name='Rest GitHubs'/>
         <page name='Rest Country'/>
+        <page name='Joker API'/>
+        <page name='TRIVIA API'/>
     </pages>
 </playground>
