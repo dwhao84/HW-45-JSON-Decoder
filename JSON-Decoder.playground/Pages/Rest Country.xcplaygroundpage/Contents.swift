@@ -4,6 +4,11 @@ import UIKit
 
 import Foundation
 
+/*
+ Country API address:
+ https://restcountries.com/v3.1/all
+ */
+
 // 定義結構體以匹配 JSON 結構
 struct Country: Codable {
     let name: Name
@@ -101,7 +106,6 @@ func fetchCountryData() {
             print(error?.localizedDescription ?? "Unknown error")
             return
         }
-        
         do {
             let decoder = JSONDecoder()
             let countries = try decoder.decode([Country].self, from: data)
