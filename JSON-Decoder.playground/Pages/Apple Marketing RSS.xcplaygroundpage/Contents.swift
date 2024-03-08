@@ -9,12 +9,12 @@ struct Feed: Decodable {
     let title: String
     let id: String
     let author: Author
-    let links: [Links]
+    let links: [Link]
     let copyright: String
     let country: String
     let icon: URL
     let updated: String
-    let results: [Results]
+    let results: [Result]
 }
 
 struct Author: Decodable {
@@ -22,11 +22,15 @@ struct Author: Decodable {
     let url:  URL
 }
 
-struct Links: Decodable {
-    let selfs: URL
+struct Link: Decodable {
+    let selfLink: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case selfLink = "Self"
+    }
 }
 
-struct Results: Decodable {
+struct Result: Decodable {
     let artistName: String
     let id: String
     let name: String
@@ -35,11 +39,11 @@ struct Results: Decodable {
     let artistId: String
     let artistUrl: URL
     let artworkUrl100: URL
-    let genres: [Genres]
+    let genres: [Genre]
     let url: URL
 }
 
-struct Genres: Decodable {
+struct Genre: Decodable {
     let genreId: String
     let name: String
     let url: URL
@@ -66,3 +70,4 @@ func fetchData () {
         }
     }.resume()
 }
+

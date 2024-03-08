@@ -6,5 +6,6 @@
         <page name='Joker API'/>
         <page name='TRIVIA API'/>
         <page name='Apple Marketing RSS'/>
+        <page name='Random User Generator'/>
     </pages>
 </playground>
