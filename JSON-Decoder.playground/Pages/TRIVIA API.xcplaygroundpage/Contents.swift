@@ -38,6 +38,10 @@ func fetchData () {
                 print(firstQuestion.question)
                 print(firstQuestion.type)
                 print(firstQuestion.difficulty)
+                print(firstQuestion.category)
+                print(firstQuestion.question)
+                print(firstQuestion.correct_answer)
+                print(firstQuestion.incorrect_answers)
                 
             } else {
                 print("No question found")
