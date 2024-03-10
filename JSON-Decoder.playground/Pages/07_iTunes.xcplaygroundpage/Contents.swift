@@ -1,4 +1,7 @@
 /*
+ JSON URL:
+ https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/SearchExamples.html#//apple_ref/doc/uid/TP40017632-CH6-SW1
+ 
  JSON Address:
  https://itunes.apple.com/search?term=jack+johnson&limit=25
  */
