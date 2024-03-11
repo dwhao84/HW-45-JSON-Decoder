@@ -1,8 +1,8 @@
 
-import UIKit
-
 // GitHubs API
 // https://api.github.com/users/twostraws/followers
+
+import UIKit
 
 struct GitHubs: Codable {
     let login: String

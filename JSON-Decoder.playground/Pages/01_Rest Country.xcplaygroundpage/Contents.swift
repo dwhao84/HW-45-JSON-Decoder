@@ -1,13 +1,9 @@
-//: [Previous](@previous)
-
-import UIKit
-
-import Foundation
-
 /*
  Country API address:
  https://restcountries.com/v3.1/all
  */
+
+import UIKit
 
 // 定義結構體以匹配 JSON 結構
 struct Country: Codable {

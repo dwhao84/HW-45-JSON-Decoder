@@ -1,11 +1,10 @@
-//: [Previous](@previous)
-
-import UIKit
 
 /*
  TRIVIA API:
  https://opentdb.com/api.php?amount=10
  */
+
+import UIKit
 
 struct Trivia: Codable {
     let response_code: Int?
