@@ -119,4 +119,3 @@ func fetchCountryData() {
 // 呼叫函數以啟動解析過程
 fetchCountryData()
 
-//: [Next](@next)

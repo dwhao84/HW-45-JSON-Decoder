@@ -20,7 +20,6 @@ struct Results: Decodable {
     let location: Location
     let email: String
     let login: Login
-    let dob: Dob
     let registered: Registered
     let phone: String
     let cell: String
@@ -36,11 +35,11 @@ struct Name: Decodable {
 }
 
 struct Location: Decodable {
-    let street: Street
+    let street: Street?
     let city: String
     let state: String
     let country: String
-    let postcode: Int
+    let postcode: Int?
     let coordinates: Coordinates
     let timezone: Timezone
 }
@@ -70,11 +69,6 @@ struct Login: Decodable {
     let sha256: String
 }
 
-struct Dob: Decodable {
-    let date: Date
-    let age: Int?
-}
-
 struct Registered: Decodable{
     let date: Date
     let age: Int
@@ -82,7 +76,7 @@ struct Registered: Decodable{
 
 struct Id: Decodable {
     let name: String
-    let value: Double?
+    let value: String?
 }
 
 struct Picture: Decodable {
@@ -99,7 +93,7 @@ struct Info: Decodable {
 }
 
 func fetchRandomUserData() {
-    guard let url = URL(string: " https://randomuser.me/api/") else { return }
+    guard let url = URL(string: "https://randomuser.me/api/") else { return }
     URLSession.shared.dataTask(with: url) { data, response, error in
         guard let data = data else {
             print(error ?? "Can't get the data" )
@@ -107,19 +101,22 @@ func fetchRandomUserData() {
         }
         do {
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .iso8601
             
-            let dateFormatter            = DateFormatter()
-            dateFormatter.dateFormat     = "yyyy-MM-dd"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
             let randomUserData = try decoder.decode(RandomUserData.self, from: data)
-            print(randomUserData.results.first?.dob.age ?? 0)
             print(randomUserData.info.page)
             print(randomUserData.info.seed)
+            print(randomUserData.info.results)
+            print(randomUserData.info.version)
             
         } catch {
-            print(error)
+            print("資料錯誤:\(error)")
         }
     }.resume()
 }

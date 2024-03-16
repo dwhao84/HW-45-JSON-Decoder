@@ -19,6 +19,7 @@ struct YouBikeData: Decodable {
     let lng: Double
     let ar: String
     let sareaen: String
+    let snaen: String // 增加缺失的字段
     let aren: String
     let bemp: Int
     let act: String
@@ -28,8 +29,9 @@ struct YouBikeData: Decodable {
     let infoDate: String
 }
 
+
 func fetchData () {
-    guard let url = URL(string: " https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json") else {
+    guard let url = URL(string: "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json") else {
         return
     }
     let task = URLSession.shared.dataTask(with: url) { data, response, error in

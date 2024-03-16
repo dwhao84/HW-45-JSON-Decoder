@@ -46,6 +46,7 @@ func fetchJoke() {
             let jokeData = try decoder.decode(Joker.self, from: data)
             print(jokeData.error)
             print(jokeData.id)
+            print(jokeData)
         } catch {
             print("Decoding error: \(error)")
         }
